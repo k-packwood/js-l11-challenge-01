@@ -13,6 +13,17 @@ const getImage = async function () {
 const selectRandomImage = async function (images) {
     const randomIndex = Math.floor(Math.random() * images.length);
     const randomImage = images[randomIndex];
+
+    displayImage(randomImage);
+};
+
+const displayImage = function (randomImage) {
+    const author = randomImage.author;
+    const imageAddress = randomImage.download_url;
+
+    authorSpan.innerText = author;
+    img.setAttribute("src", imageAddress);
+    imgDiv.classList.remove("hide");
 };
 
 getImage();
